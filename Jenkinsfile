@@ -11,7 +11,7 @@ pipeline {
             }
         }
         
-        stage('Deploy EKS Cluster') {
+        stage('Deploying EKS Cluster') {
             steps {
                 sh 'terraform -v'
                 sh 'terraform init terraform/'
@@ -23,7 +23,7 @@ pipeline {
 
         stage('Deploy exemple app') {
             steps {
-                sh 'aws eks update-kubeconfig --eks-cluster --region eu-central-1'
+                sh 'aws eks update-kubeconfig --name eks-cluster --region eu-central-1'
                 sh 'kubectl apply -f deployment.yml'
 
             }
