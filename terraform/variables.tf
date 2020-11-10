@@ -4,7 +4,7 @@ variable "region" {
 }
 
 variable "cluster_name" {
-  default = "getting-started-eks"
+  default = "eks-cluster"
 }
 
 variable "map_accounts" {

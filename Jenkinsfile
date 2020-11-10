@@ -11,11 +11,20 @@ pipeline {
             }
         }
         
-        stage('Test') {
+        stage('Deploy EKS Cluster') {
             steps {
                 sh 'terraform -v'
                 sh 'terraform init terraform/'
                 sh 'terraform plan terraform/'
+                sh 'terraform apply -auto-approve terraform/'
+
+            }
+        }
+
+        stage('Deploy exemple app') {
+            steps {
+                sh 'aws eks update-kubeconfig --eks-cluster --region eu-central-1'
+                sh 'kubectl apply -f deployment.yml'
 
             }
         }
