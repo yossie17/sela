@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'terraform -v'
                 sh 'terraform init terraform/'
-                sh 'terraform plan terraform/'
+                // sh 'terraform plan terraform/'
                 sh 'terraform apply -auto-approve terraform/'
 
             }
