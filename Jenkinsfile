@@ -14,8 +14,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'terraform -v'
-                sh 'terraform init /terraform'
-                sh 'terraform plan /terraform'
+                sh 'terraform init terraform/'
+                sh 'terraform plan terraform/'
 
             }
         }
